@@ -23,19 +23,13 @@ public class Assignment {
 	    } else {
 	    	// initalize array
 	    	for (int i = 0; i < items.length; i++) {
-	    		items[i] = new ShowTaskTodo();
+	    		items[i] = new TaskTodo();
 	    }
 	    	
-	    items[0] = new ShowTaskTodo();
-	    items[1] = new ShowTaskTodo("Task1", new Date(), "This is task 1", "Home");
-	    items[2] = new ShowTaskTodo("Task2", new Date(), "This is task 2", "Work");
-	    items[3] = new ShowTaskTodo("Task3", new Date(), "This is task 3", "Work");
-	    
-	    for (int i=0; i < items.length; i++) {
-	    	System.out.println("Task Data: " + i + "\n");
-	    	System.out.println(items[i].ShowTaskTodo());
-	    	System.out.println("toString Data: " + "\n");
-	    	System.out.println(items[i].toString());
+	    items[0] = new TaskTodo();
+	    items[1] = new TaskTodo("Task1", new Date(), "This is task 1", "Home", "hello", new Date(), new Date());
+	    items[2] = new TaskTodo("Task2", new Date(), "This is task 1", "Home", "hello", new Date(), new Date());
+	    items[3] = new TaskTodo("Task3", new Date(), "This is task 1", "Home", "hello", new Date(), new Date());
 	    }
 	}
 }
@@ -83,7 +77,7 @@ class TaskTodo extends Task {
 		super();
 	}
 	
-	TaskTodo( Date dt, String Name, String Desc, String Categ, String State, 
+	TaskTodo( String Name, Date dt, String Desc, String Categ, String State, 
 			Date CompleteDate, Date DueDate) {
 		super(dt,Desc);
 		
@@ -150,7 +144,13 @@ class TaskTodo extends Task {
 	String storeTask() { return "stored"; }
 		
 	String helpTask() { return "helped"; }
-}
+
+	private static void printTask(int i, String items[]) {
+    	System.out.println("Task Data: " + i + "\n");
+    	System.out.println(items[i].toString());
+    	System.out.println("toString Data: " + "\n");
+    	System.out.println(items[i].toString());	
+	}
 
 }
 	
